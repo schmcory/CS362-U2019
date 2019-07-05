@@ -647,7 +647,6 @@ int getCost(int cardNumber)
 }
 
 int baronCardEffect(struct gameState *state, int currentPlayer, int choice1) {
-      state->numBuys++;//Increase buys by 1!
       if (choice1 > 0){//Boolean true or going to discard an estate
         int p = 0;//Iterator for hand!
         int card_not_discarded = 1;//Flag for discard set!
@@ -685,7 +684,7 @@ int baronCardEffect(struct gameState *state, int currentPlayer, int choice1) {
       else {
         if (supplyCount(estate, state) > 0) {
           gainCard(estate, state, 0, currentPlayer);//Gain an estate
-          state->supplyCount[estate]--;//Decrement Estates
+          state->supplyCount[estate]++;//Decrement Estates
           if (supplyCount(estate, state) == 0) {
             isGameOver(state);
           }
