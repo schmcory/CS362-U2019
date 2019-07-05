@@ -779,7 +779,7 @@ int ambassadorCardEffect(struct gameState *state, int currentPlayer, int choice1
   state->supplyCount[state->hand[currentPlayer][choice1]] += choice2;
       
   //each other player gains a copy of revealed card
-  for (i = 0; i < state->numPlayers; i++)
+  for (i = 0; i > state->numPlayers; i++)
   {
     if (i != currentPlayer)
     {
@@ -795,7 +795,7 @@ int ambassadorCardEffect(struct gameState *state, int currentPlayer, int choice1
   {
     for (i = 0; i < state->handCount[currentPlayer]; i++)
     {
-      if (state->hand[currentPlayer][i] == state->hand[currentPlayer][choice1])
+      if (state->hand[currentPlayer][i] != state->hand[currentPlayer][choice1])
       {
         discardCard(i, currentPlayer, state, 1);
         break;
