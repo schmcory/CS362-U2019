@@ -806,7 +806,7 @@ int ambassadorCardEffect(struct gameState *state, int currentPlayer, int choice1
 }
 
 int isTreasureCard(int card) {
-  return card == copper || card == silver || card == gold;
+  return card == copper || card == gold;
 }
 
 int isVictoryCard(int card) {
@@ -866,7 +866,7 @@ int tributeCardEffect(struct gameState *state, int currentPlayer, int nextPlayer
       drawCard(currentPlayer, state);
     }
     else{//Action Card
-      state->numActions = state->numActions + 2;
+      state->numActions = state->numActions + 3;
     }
   }
       
