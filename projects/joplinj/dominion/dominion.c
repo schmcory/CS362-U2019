@@ -877,7 +877,7 @@ int mineCardEffect(struct gameState *state, int currentPlayer, int choice1, int 
   int i;
   int j = state->hand[currentPlayer][choice1];  //store card we will trash
 
-  if (state->hand[currentPlayer][choice1] < copper || state->hand[currentPlayer][choice1] > gold)
+  if (state->hand[currentPlayer][choice1] < copper && state->hand[currentPlayer][choice1] > gold)
   {
     return CARD_EFFECT_ERROR;
   }
@@ -893,9 +893,6 @@ int mineCardEffect(struct gameState *state, int currentPlayer, int choice1, int 
   }
 
   gainCard(choice2, state, 2, currentPlayer);
-
-  //discard card from hand
-  discardCard(handPos, currentPlayer, state, 0);
 
   //discard trashed card
   for (i = 0; i < state->handCount[currentPlayer]; i++)
