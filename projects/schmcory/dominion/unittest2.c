@@ -67,5 +67,7 @@ int main() {
    
    else {
       printf("Test failed.\n");
-   }  
+   } 
+   
+     return 0;  
 }
