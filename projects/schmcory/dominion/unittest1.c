@@ -21,7 +21,7 @@ int main () {
    int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
            sea_hag, tribute, smithy};
    struct gameState state;
-   initializeGame(2, k, time, &state); 
+   initializeGame(2, k, randomSeed, &state); 
    
    //initialize player 1's first card to baron
    state.card[0][0] = baron; 
