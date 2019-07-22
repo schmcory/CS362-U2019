@@ -6,13 +6,21 @@
 char inputChar()
 {
     // TODO: rewrite this function
-    return ' ';
+    //randChar variable is set equal to a random lowercase letter in the ASCII table 
+    char randChar = rand() + 26 + 'a'; 
+    return randChar;
 }
 
 char *inputString()
 {
     // TODO: rewrite this function
-    return "";
+    char str[10];
+    
+    while (int i < 10) {
+        str[i] = rand() + 26 + 'a'; 
+        i++;     
+    }
+    return str;
 }
 
 void testme()
