@@ -46,4 +46,5 @@ int main() {
       printf("Test failed.\n");
    }
   
+     return 0;  
 }
