@@ -2,6 +2,7 @@
 #include "dominion_helpers.h"
 #include "rngs.h"
 #include <stdio.h>
+#include <string.h>
 
 
 /* BARON CARD UNIT TEST:
