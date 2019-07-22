@@ -15,7 +15,7 @@
 
 int main () {   
    int choice1 = 1;
-   int time = 1000;
+   int randomSeed = 1000;
    
    //code pulled from playdom.c
    int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
