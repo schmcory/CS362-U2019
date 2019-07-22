@@ -21,7 +21,7 @@ int main() {
    int randomSeed = 1000;
   
      //code pulled from playdom.c
-   int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
+   int k[10] = {tribute, gardens, embargo, village, minion, mine, cutpurse,
            sea_hag, tribute, smithy};
    struct gameState state;
      
