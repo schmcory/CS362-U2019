@@ -14,9 +14,13 @@ char inputChar()
 char *inputString()
 {
     // TODO: rewrite this function
+    
+    //the size of the string must 10 characters
     char str[10];
     
+    //while the iterator is less than the specified string size
     while (int i < 10) {
+        //a random string of lowercase letters in the ASCII table is generated
         str[i] = rand() + 26 + 'a'; 
         i++;     
     }
