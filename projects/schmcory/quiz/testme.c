@@ -6,30 +6,25 @@
 char inputChar()
 {
     // TODO: rewrite this function
-    //randChar variable is set equal to a random lowercase letter in the ASCII table 
-    char randChar = rand() % 26 + 'a'; 
+    //randChar variable is set equal to a random character between 32 and 125 
+    char randChar = (rand() % (125 - 32 + 1)) + 32; 
     return randChar;
 }
 
 char *inputString()
 {
     // TODO: rewrite this function
+  
+    //the size of the string must 5 characters
+    static char str[5];
     
-    //the size of the string must 10 characters
-    static char str[10];
-    
-    //sets itertator equal to 0 
-    int i = 0; 
-    
-    //initialize the string to NULL 
-    memset(str, '\0', sizeof(str));
-    
-    //while the iterator is less than the specified string size
-    while (int i < 10) {
-        //a random string of lowercase letters in the ASCII table is generated
-        str[i] = rand() % 26 + 'a'; 
-        i++;     
+    //for loop to iterate through while i is less than the specified string size
+    for(int i = 0; i < 5; i++) {
+        //a random string of lowercase letters from e to t is generated
+        str[i] = (rand() % (116 - 101 + 1)) + 101; 
     }
+    //sets the 5 item of the string array to 0 so the program will terminate 
+    str[5] = '\0'; 
     return str;
 }
 
