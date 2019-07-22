@@ -23,7 +23,7 @@ int main() {
    //code pulled from playdom.c
    int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
            sea_hag, tribute, smithy};
-     
+   struct gameState state,
    initializeGame(2, k, randomSeed, &state);
      
    //initialize player's card to minion
@@ -31,8 +31,6 @@ int main() {
    
    //code borrowed from player.c
    memset(&state, 0, sizeof(struct gameState)); 
-     
-   minionRefactor(&state, handPos, choice1, choice2); 
      
    printf("Unit Tests: Minion");
    /* UNIT TEST 1: Were the number of coins increased by 2?" */
