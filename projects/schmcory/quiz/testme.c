@@ -7,7 +7,7 @@ char inputChar()
 {
     // TODO: rewrite this function
     //randChar variable is set equal to a random lowercase letter in the ASCII table 
-    char randChar = rand() + 26 + 'a'; 
+    char randChar = rand() % 26 + 'a'; 
     return randChar;
 }
 
@@ -16,12 +16,18 @@ char *inputString()
     // TODO: rewrite this function
     
     //the size of the string must 10 characters
-    char str[10];
+    static char str[10];
+    
+    //sets itertator equal to 0 
+    int i = 0; 
+    
+    //initialize the string to NULL 
+    memset(str, '\0', sizeof(str));
     
     //while the iterator is less than the specified string size
     while (int i < 10) {
         //a random string of lowercase letters in the ASCII table is generated
-        str[i] = rand() + 26 + 'a'; 
+        str[i] = rand() % 26 + 'a'; 
         i++;     
     }
     return str;
