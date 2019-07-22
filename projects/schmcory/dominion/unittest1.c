@@ -14,12 +14,13 @@
 
 int main () {   
    int choice1 = 1;
+   int time = 1000;
    
    //code pulled from playdom.c
    int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
            sea_hag, tribute, smithy};
    struct gameState state;
-   initializeGame(2, k, time, &G); 
+   initializeGame(2, k, time, &state); 
    
    //initialize player 1's first card to baron
    state.card[0][0] = baron; 
