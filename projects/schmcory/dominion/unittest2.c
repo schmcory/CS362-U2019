@@ -16,9 +16,12 @@
 int main() {
    int randomSeed = 1000;
    
-   int handPos;
-   int choice1;
-   int choice2;
+   //initialize variables from cardEffect function
+   int choice1 = 0;
+   int choice2 = 0;
+   int choice3 = 0
+   int handPos = 0;
+   int bonus = 0; 
    
    //code pulled from playdom.c
    int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
@@ -28,6 +31,9 @@ int main() {
      
    //initialize player's card to minion
    state.card[0][0] = minion;
+     
+   //function call to cardEffect   
+   cardEffect(minion, choice1, choice2, choice3, &state, handPos, &bonus); 
    
    //code borrowed from player.c
    memset(&state, 0, sizeof(struct gameState)); 
