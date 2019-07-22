@@ -26,7 +26,7 @@ int main () {
    state.card[0][0] = baron; 
 
    //code borrowed from player.c
-   memset(&G, 0, sizeof(struct gameState));
+   memset(&state, 0, sizeof(struct gameState));
    
    printf("Unit Tests: Baron");
    
