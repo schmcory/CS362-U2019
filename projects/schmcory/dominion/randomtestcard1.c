@@ -22,7 +22,7 @@ int main() {
 	int choice1; 
 	
 	//seed time
-	srand(time(NULL));
+	srand(time(0));
 	
 	//initalize randomSeed equal to a random number
 	randomSeed = rand(); 
@@ -33,6 +33,13 @@ int main() {
 	//initialize game
 	initializeGame(numPlayers, kingdomCards, randomSeed, &state); 
 	
+	//randomize card deck 
+	for(int i = 0; i < 1000; i++) {
+		for(int j = 0; j < sizeof(struct gameState); j++) {
+			((char *)&state)[j] = rand % 256; 
+		}
+	}
+	
 		//generate random choice between 0 or 1; 
 		choice1 = (rand() % (1 - 0 + 1)) + 0; 
 	
@@ -40,11 +47,20 @@ int main() {
 		currentPlayer = (rand() % (3 - 0 + 1)) + 0; 
 	
 		//estate card supply set between 0 and 12 cards
-		state.supplyCount[estate] = (rand() % (13 - 0 + 1)) + 0; 
+		state.supplyCount[estate] = (rand() % (13 - 0 + 1)) + 0;
+	
+		//randomize discardCount between 0 and 500
+		state.discardCount[currentPlayer] = rand() % (500 - 0 + 1) + 0;
+	
+		//randomize discardCount between 0 and 500	
+		state.handCount[currentPlayer] = rand() % (500 - 0 + 1) + 0;
+	
+		handCount = state.handCount[currentPlayer]; 
 		
 		//function call to baronTest 
-		baronTest(&state, choice1);	
-   	}
+		baronTest(&state, choice1);
+	
+	
 	return 0; 	
 }
 
@@ -59,7 +75,7 @@ int baronTest(struct gameState *state, int choice1) {
 	//function call to baronRefactor
 	baronRefactor(state, choice1);
 	
-	state.numBuys++;//Increase buys by 1!
+	prevState.numBuys++;//Increase buys by 1!
 	
 	if(choice1 == 0) {
 		prevState.discard[currentPlayer][prevState.discardCount[currentPlayer]] = estate;
