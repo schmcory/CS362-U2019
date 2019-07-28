@@ -7,7 +7,7 @@
 #include <assert.h>
 #include "rngs.h"
 
-int baronRefactor(struct gameState *state, int choice1); 
+int baron(struct gameState *state, int choice1); 
 
 //RANDOM TEST GENERATOR FROM CASE BARON
 int main() {
@@ -53,11 +53,11 @@ int main() {
 		choice1 = (int) Random() % 1;  
 		
 		if(choice1 == 0) {
-			baronRefactor(&state, choice1);	
+			baron(&state, choice1);	
 		}
 			       
 		else {
-		      baronRefactor(&state, choice1); 
+		      baron(&state, choice1); 
 		}
    }
 	
@@ -65,7 +65,7 @@ int main() {
 }
 
 //CASE BARON
-int baronRefactor(struct gameState *state, int choice1) {
+int baron(struct gameState *state, int choice1) {
       int currentPlayer = whoseTurn(state); //declare currentPlayer variable from cardEffect
       state->numBuys++;//Increase buys by 1!
       if (choice1 > 0){//Boolean true or going to discard an estate
