@@ -7,6 +7,62 @@
 #include <assert.h>
 #include "rngs.h"
 
+//RANDOM TEST GENERATOR FROM CASE BARON
+int main() {
+	//declare variables from initalizeGame function
+	int numPlayers;
+	int kingdomCards[10];
+	int randomSeed;
+	struct gameState state;
+	int choice1; 
+	
+	int card_not_discarded = 1; //Flag for discard set!
+	
+	while(card_not_discarded) {
+		//randomly set number of players 
+		numPlayers = floor(Random() * MAX_PLAYERS + 1); 
+	
+		/*if the numPlayers is less than 2 
+		if(numPlayers < 2) {
+			//if the numPlayers = 1
+			if(numPlayers == 1) {
+		    		//add at least 1 players
+		    		numPlayers += 1; 
+			}
+		
+		//else if the numPlayers = 0
+			else if(numPlayers == 0) {
+				//add at least 2 players
+				numPlayers += 2; 
+			}
+		}
+		*/
+	
+		//seed time
+		srand(time(NULL));
+	
+		//initalize randomSeed equal to a random number
+		randomSeed = rand(); 
+	
+		//initialize game
+		initializeGame(numPlayers, kingdomCards, randomSeed, &state); 
+	
+		//generate random choice between 0 and 1; 
+		choice1 = Random() % 1 + 0; 
+		
+		if(choice1 == 0) {
+			baronRefactor(&state, choice1);
+			assert(s
+		}
+			       
+		else {
+		      baronRefactor(&state, choice1); 
+		}
+   }
+	
+	
+}
+
 //CASE BARON
 int baronRefactor(struct gameState *state, int choice1) {
       int currentPlayer = whoseTurn(state); //declare currentPlayer variable from cardEffect
