@@ -1148,8 +1148,7 @@ int mineRefactor(struct gameState *state, int choice1, int choice2, int handPos)
 }
 
 //CASE BARON
-int baronRefactor(struct gameState *state, int choice1) {
-      int currentPlayer = whoseTurn(state); //declate currentPlayer variable from cardEffect
+int baronRefactor(struct gameState *state, int choice1, int currentPlayer) {
       state->numBuys++;//Increase buys by 1!
       if (choice1 > 0){//Boolean true or going to discard an estate
 	int p = 0;//Iterator for hand!
@@ -1204,7 +1203,7 @@ int baronRefactor(struct gameState *state, int choice1) {
 }
 
 //CASE MINION
-int minionRefactor(struct gameState *state, int handPos, int choice1, int choice2) {
+int minionRefactor(struct gameState *state, int handPos, int choice1, int choice2, int currentPlayer) {
       int currentPlayer = whoseTurn(state); //declate currentPlayer variable from cardEffect
       int i;
       int j;
@@ -1326,11 +1325,8 @@ int ambassadorRefactor(struct gameState *state, int choice1, int choice2, int ha
 }
 
 //CASE TRIBUTE
-int tributeRefactor(struct gameState *state) {
-      int currentPlayer = whoseTurn(state); //declate currentPlayer variable from cardEffect
-      int nextPlayer = currentPlayer + 1;
+int tributeRefactor(struct gameState *state, int currentPlater, int nextPlayer,  int *tributeRevealedCards) {
       int i;
-      int tributeRevealedCards[2] = {-1, -1};
 
       if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1){
 	if (state->deckCount[nextPlayer] > 0){
