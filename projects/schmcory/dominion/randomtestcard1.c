@@ -15,7 +15,7 @@ int baronTest(struct gameState *state, int choice1, int currentPlayer);
 //RANDOM TEST GENERATOR FROM CASE BARON
 int main() {
 	//declare variables from initalizeGame function
-	int numPlayers;
+	int numPlayers = 4;
 	int kingdomCards[10] = {minion, ambassador, tribute, gardens, mine, remodel, smithy, village, baron, great_hall};
 	struct gameState state; //
 	int randomSeed;
@@ -31,17 +31,12 @@ int main() {
 	
 	//for loop for number of tests
 	for(int i = 0; i < 10; i++) { 
-		
-		int numPlayers = (rand() % 4 - 1 + 1)) + 1; 
 
 		//initialize game
 		initializeGame(numPlayers, kingdomCards, randomSeed, &state); 
 	
-		//generate random choice1 between 0 and 4; 
-		choice1 = (rand() % (5 - 0 + 1)) + 0; 
-		
-		//generate random choice2 between 0 and 5
-		choice2 = (rand() % (5 - 0 + 1)) + 0; 
+		//generate random choice between 0 or 1; 
+		choice1 = (rand() % (1 - 0 + 1)) + 0; 
 	
 		//generate a random currentPlayer from 0 to 3; 
 		currentPlayer = (rand() % (3 - 0 + 1)) + 0; 
@@ -68,9 +63,9 @@ int main() {
 	return 0; 	
 }
 
-//CASE MINION
+//CASE BARON
 //Player can either discard an estate card and win 4 coins OR gain a new estate card
-int minionTest(struct gameState *state, int handPos, int choice1, int choice2, int currentPlayer) {
+int baronTest(struct gameState *state, int choice1, int currentPlayer) {
 	//previous gameState
 	struct gameState prevState;
 
@@ -78,51 +73,33 @@ int minionTest(struct gameState *state, int handPos, int choice1, int choice2, i
 	memcpy(&prevState, state, sizeof(struct gameState));
 
 	//function call to baronRefactor
-	minionRefactor(state, handPos, choice1, choice2, currentPlayer);
+	baronRefactor(state, choice1, currentPlayer);
 	
-	//+1 action
-      	prevState.numActions++;
+	prevState.numBuys++;//Increase buys by 1!
 	
-	if(choice1) {
-		//
-		prevState.coins += 2; 
-
-	}
-		
-	//else the currentPlayer is NOT holding an estate card, add an estate card
-	else if(choice2) {
-		while(prevState.handCount[currentPlayer] > 0) {
-	      		prevState.handCount[currentPlayer]--;
-	  	}
-		
-	  	//draw 4
-	  	for (i = 0; i < 4; i++) {
-	      		drawCard(currentPlayer, &state);
-	    	}
-
-	  //other players discard hand and redraw if hand size > 4
-	  for (i = 0; i < prevState.numPlayers; i++)
-	    {
-          /*Bug 6: changed != to ==, if iterrator = currentPlayer, doesn't ever each other players */
-	      if (i == currentPlayer)
-		{
-		  if (prevState.handCount[i] > 4 )
-		    {
-		      //discard hand
-		      while(prevState.handCount[i] > 0 )
-			{
-			  discardCard(handPos, i, &prevState, 0);
-			}
-
-		      //draw 4
-		      for (j = 0; j < 4; j++)
-			{
-			  drawCard(i, &prevState);
-			}
-		    }
+	if(choice1 == 1) {
+		//if the currentPlayer, 0 is holding an estate card
+		if(prevState.hand[currentPlayer][0] == estate) {
+			prevState.coins += 4;//Add 4 coins to the amount of coins
+	    		prevState.handCount[currentPlayer]--;
+	    		prevState.discardCount[currentPlayer]++;
 		}
-	    }
-
+		
+		//if the currentPlayer is NOT holding an estate card, add an estate card
+		else {
+				prevState.discardCount[currentPlayer]++;
+				prevState.discard[currentPlayer][prevState.discardCount[currentPlayer] - 1] = estate;
+				prevState.supplyCount[estate]--;
+		}
 	}
-      return 0;
+
+	//else the currentPlayer is NOT holding an estate card, add an estate card
+	else {
+			prevState.discardCount[currentPlayer]++;
+			prevState.discard[currentPlayer][prevState.discardCount[currentPlayer] - 1] = estate;
+			prevState.supplyCount[estate]--;
+	}
+
+	return 0; 
+
 }
