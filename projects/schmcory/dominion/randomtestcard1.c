@@ -1,5 +1,12 @@
 //randomtestcard1.c
 
+#include "dominion.h"
+#include "dominion_helpers.h"
+#include <string.h>
+#include <stdio.h>
+#include <assert.h>
+#include "rngs.h"
+
 //CASE BARON
 int baronRefactor(struct gameState *state, int choice1) {
       int currentPlayer = whoseTurn(state); //declare currentPlayer variable from cardEffect
