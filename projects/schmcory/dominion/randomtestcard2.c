@@ -37,7 +37,7 @@ int main() {
 		//initialize game
 		initializeGame(numPlayers, kingdomCards, randomSeed, &state); 
 	
-		//generate random choice1 between 0 and 4; 
+		//generate random choice1 between 0 and 5; 
 		choice1 = (rand() % (5 - 0 + 1)) + 0; 
 		
 		//generate random choice2 between 0 and 5
@@ -49,8 +49,8 @@ int main() {
 		//estate card supply set between 0 and 12 cards
 		state.supplyCount[estate] = (rand() % (13 - 0 + 1)) + 0;
 	
-		//randomize card value between 0 and 26	
-		card = rand() % (26 - 0 + 1) + 0;
+		//randomize card value between 1 and 5
+		card = rand() % (5 - 0 + 1) + 0;
 	
 		//randomize card type in hand of currentPlayer
 		for(handPos = 0; handPos < 5; handPos++) {
@@ -61,7 +61,7 @@ int main() {
 		state.handCount[currentPlayer] = 5; 
 		
 		//function call to baronTest 
-		baronTest(&state, choice1, currentPlayer);
+		minionTest(&state, handPos, choice1, choice2, currentPlayer);
 	
 	}
 	
