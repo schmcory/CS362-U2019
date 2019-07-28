@@ -50,9 +50,10 @@ int main() {
 		//generate random choice between 0 and 1; 
 		choice1 = Random() % 1 + 0; 
 		
+		state->supplyCount
+		
 		if(choice1 == 0) {
 			baronRefactor(&state, choice1);
-			assert(s
 		}
 			       
 		else {
@@ -76,7 +77,7 @@ int baronRefactor(struct gameState *state, int choice1) {
 	    state->coins += 4;//Add 4 coins to the amount of coins
 	    state->discard[currentPlayer][state->discardCount[currentPlayer]] = state->hand[currentPlayer][p];
 	    state->discardCount[currentPlayer]++;
-	    for (;p < state->handCount[currentPlayer]; p++){
+	    for (p < state->handCount[currentPlayer]; p++){
 	      state->hand[currentPlayer][p] = state->hand[currentPlayer][p+1];
 	    }
 	    state->hand[currentPlayer][state->handCount[currentPlayer]] = -1;
