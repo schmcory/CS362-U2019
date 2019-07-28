@@ -7,8 +7,10 @@
 #include <assert.h>
 #include "rngs.h"
 #include "math.h" 
+#include <stdlib.h>
+#include <time.h>
 
-int baron(struct gameState *state, int choice1); 
+int baronR(struct gameState *state, int choice1); 
 
 //RANDOM TEST GENERATOR FROM CASE BARON
 int main() {
