@@ -20,6 +20,7 @@ int main() {
 	struct gameState state; //
 	int randomSeed;
 	int choice1; //
+	int choice2;
 	int currentPlayer; //
 	int handPos; 
 	int card; //
@@ -32,7 +33,7 @@ int main() {
 	//for loop for number of tests
 	for(int i = 0; i < 10; i++) { 
 		
-		int numPlayers = (rand() % 4 - 1 + 1)) + 1; 
+		numPlayers = (rand() % (4 - 1 + 1)) + 1; 
 
 		//initialize game
 		initializeGame(numPlayers, kingdomCards, randomSeed, &state); 
@@ -79,6 +80,9 @@ int minionTest(struct gameState *state, int handPos, int choice1, int choice2, i
 
 	//function call to baronRefactor
 	minionRefactor(state, handPos, choice1, choice2, currentPlayer);
+
+	int i;
+	int j;
 	
 	//+1 action
       	prevState.numActions++;
@@ -97,7 +101,7 @@ int minionTest(struct gameState *state, int handPos, int choice1, int choice2, i
 		
 	  	//draw 4
 	  	for (i = 0; i < 4; i++) {
-	      		drawCard(currentPlayer, &state);
+	      		drawCard(currentPlayer, &prevState);
 	    	}
 
 	  //other players discard hand and redraw if hand size > 4
