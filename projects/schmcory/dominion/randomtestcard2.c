@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int baronTest(struct gameState *state, int choice1, int currentPlayer); 
+int minionTest(struct gameState *state, int handPos, int choice1, int choice2, int currentPlayer); 
 
 //RANDOM TEST GENERATOR FROM CASE BARON
 int main() {
