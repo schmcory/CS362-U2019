@@ -10,40 +10,30 @@
 #include <stdlib.h>
 #include <time.h>
 
-int baronTest(struct gameState *state, int choice1); 
+void baronTest(struct gameState *state, int choice1, int currentPlayer); 
 
 //RANDOM TEST GENERATOR FROM CASE BARON
 int main() {
 	//declare variables from initalizeGame function
-	int numPlayers;
+	int numPlayers = 4;
 	int kingdomCards[10] = {minion, ambassador, tribute, gardens, mine, remodel, smithy, village, baron, great_hall};
+	struct gameState state; //
 	int randomSeed;
-	struct gameState state;
-	int choice1; 
-	int currentPlayer;
+	int choice1; //
+	int currentPlayer; //
 	int handPos; 
-	int card;
-	
-	//seed time
+	int card; //
+
 	srand(time(0));
-	
-	//initalize randomSeed equal to a random number
-	randomSeed = rand(); 
+
+
+	randomSeed = rand();
 	
 	//for loop for number of tests
-	for(int i = 0; i < 1000; i++) { 
-		//generate a random numPlayers between 1 and 4
-		numPlayers = (rand() % (4 - 1 + 1)) + 1; 
-	
+	for(int i = 0; i < 10; i++) { 
+
 		//initialize game
 		initializeGame(numPlayers, kingdomCards, randomSeed, &state); 
-	
-		//randomize card deck 
-		for(int j = 0; j < 1000; j++) {
-			for(int k = 0; k < sizeof(struct gameState); k++) {
-				((char *)&state)[k] = rand() % 256; 
-			}
-		}
 	
 		//generate random choice between 0 or 1; 
 		choice1 = (rand() % (1 - 0 + 1)) + 0; 
@@ -58,7 +48,7 @@ int main() {
 		card = rand() % (26 - 0 + 1) + 0;
 	
 		//randomize card type in hand of currentPlayer
-		for(handPos = 0; handPos < 5 < handPos++) {
+		for(handPos = 0; handPos < 5; handPos++) {
 			state.hand[currentPlayer][handPos] = card; 
 		}
 		
@@ -75,10 +65,13 @@ int main() {
 
 //CASE BARON
 //Player can either discard an estate card and win 4 coins OR gain a new estate card
-int baronTest(struct gameState *state, int choice1, int currentPlayer) {
+void baronTest(struct gameState *state, int choice1, int currentPlayer) {
 	//previous gameState
 	struct gameState prevState;
-	
+
+	//create memory from previous gameState
+	memcpy(&prevState, state, sizeof(struct gameState));
+
 	//function call to baronRefactor
 	baronRefactor(state, choice1, currentPlayer);
 	
@@ -86,24 +79,25 @@ int baronTest(struct gameState *state, int choice1, int currentPlayer) {
 	
 	if(choice1 == 1) {
 		//if the currentPlayer, 0 is holding an estate card
-		if(prevState.hand[currentPlayer][p] == estate) {
+		if(prevState.hand[currentPlayer][0] == estate) {
 			prevState.coins += 4;//Add 4 coins to the amount of coins
 	    		prevState.handCount[currentPlayer]--;
 	    		prevState.discardCount[currentPlayer]++;
 		}
 		
+		//if the currentPlayer is NOT holding an estate card, add an estate card
 		else {
-			prevState.discardCount[currentPlayer]++;
-			prevState.discard[currentPlayer][prevState.discardCount[currentPlayer] - 1] = estate;
-			prevState.supplyCount[estate]--
+				prevState.discardCount[currentPlayer]++;
+				prevState.discard[currentPlayer][prevState.discardCount[currentPlayer] - 1] = estate;
+				prevState.supplyCount[estate]--;
 		}
 	}
-	
+
+	//else the currentPlayer is NOT holding an estate card, add an estate card
 	else {
 			prevState.discardCount[currentPlayer]++;
 			prevState.discard[currentPlayer][prevState.discardCount[currentPlayer] - 1] = estate;
-			prevState.supplyCount[estate]--	
+			prevState.supplyCount[estate]--;
 	}
 
-	return 0;
 }
