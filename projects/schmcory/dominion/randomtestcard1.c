@@ -7,6 +7,8 @@
 #include <assert.h>
 #include "rngs.h"
 
+int baronRefactor(struct gameState *state, int choice1); 
+
 //RANDOM TEST GENERATOR FROM CASE BARON
 int main() {
 	//declare variables from initalizeGame function
@@ -53,7 +55,7 @@ int main() {
 		state->supplyCount
 		
 		if(choice1 == 0) {
-			baronRefactor(&state, choice1);
+			baronRefactor(&state, choice1);	
 		}
 			       
 		else {
