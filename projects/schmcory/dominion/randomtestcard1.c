@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-void baronTest(struct gameState *state, int choice1, int currentPlayer); 
+int baronTest(struct gameState *state, int choice1, int currentPlayer); 
 
 //RANDOM TEST GENERATOR FROM CASE BARON
 int main() {
@@ -65,7 +65,7 @@ int main() {
 
 //CASE BARON
 //Player can either discard an estate card and win 4 coins OR gain a new estate card
-void baronTest(struct gameState *state, int choice1, int currentPlayer) {
+int baronTest(struct gameState *state, int choice1, int currentPlayer) {
 	//previous gameState
 	struct gameState prevState;
 
@@ -99,5 +99,7 @@ void baronTest(struct gameState *state, int choice1, int currentPlayer) {
 			prevState.discard[currentPlayer][prevState.discardCount[currentPlayer] - 1] = estate;
 			prevState.supplyCount[estate]--;
 	}
+
+	return 0; 
 
 }
