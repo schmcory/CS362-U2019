@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include "rngs.h"
+#include "math.h" 
 
 int baron(struct gameState *state, int choice1); 
 
@@ -53,11 +54,11 @@ int main() {
 		choice1 = (int) Random() % 1;  
 		
 		if(choice1 == 0) {
-			baron(&state, choice1);	
+			baronR(&state, choice1);	
 		}
 			       
 		else {
-		      baron(&state, choice1); 
+		      baronR(&state, choice1); 
 		}
    }
 	
@@ -65,7 +66,7 @@ int main() {
 }
 
 //CASE BARON
-int baron(struct gameState *state, int choice1) {
+int baronR(struct gameState *state, int choice1) {
       int currentPlayer = whoseTurn(state); //declare currentPlayer variable from cardEffect
       state->numBuys++;//Increase buys by 1!
       if (choice1 > 0){//Boolean true or going to discard an estate
