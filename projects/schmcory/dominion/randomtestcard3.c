@@ -1,5 +1,12 @@
 //randomtestcard3.c
 
+#include "dominion.h"
+#include "dominion_helpers.h"
+#include <string.h>
+#include <stdio.h>
+#include <assert.h>
+#include "rngs.h"
+
 //CASE TRIBUTE
 int tributeRefactor(struct gameState *state) {
       int currentPlayer = whoseTurn(state); //declate currentPlayer variable from cardEffect
