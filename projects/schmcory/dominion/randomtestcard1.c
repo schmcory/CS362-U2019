@@ -51,6 +51,7 @@ int main() {
 //CASE BARON
 int baronTest(struct gameState *state, int choice1) {
 	int currentPlayer = whoseTurn(state);
+	int p = 0;//Iterator for hand!
 	
 	//previous gameState
 	struct gameState prevState;
@@ -58,21 +59,27 @@ int baronTest(struct gameState *state, int choice1) {
 	//function call to baronRefactor
 	baronRefactor(state, choice1);
 	
-	if(choice 1 > 0) {
-		if(prevState.hand[currentPlayer][0] == estate) {
-			prevSupply.coins += 4;//Add 4 coins to the amount of coins
-	    		prevSupply.handCount[currentPlayer]--
-	   		prevSupply.discardCount[currentPlayer]++;	
-		}
+	state.numBuys++;//Increase buys by 1!
 	
-		else {
-			
-		}
+	if(choice1 == 0) {
+		prevState.discard[currentPlayer][prevState.discardCount[currentPlayer]] = estate;
+		prevState.discardCount[currentPlayer]++;
+		prevState.supplyCount[estate]--;
 	}
 	
-	
-	
-	
+	else if {
+		prevState.coins = prevState.coins + 4;
+		prevState.discard[currentPlayer][prevState.discardCount[currentPlayer]] = prevState.hand[currentPlayer][p];
+		prevState.discardCount[currentPlayer]++;
+		for (;p < prevState.handCount[currentPlayer]; p++){
+	      		prevState.hand[currentPlayer][p] = prevState.hand[currentPlayer][p+1];
+	    	}
+		
+	prevState.hand[currentPlayer][prevState.handCount[currentPlayer]] = -1;
+	prevState.handCount[currentPlayer]--;
+	}
+
+	return 0;
 }
 
      
