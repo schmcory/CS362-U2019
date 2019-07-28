@@ -20,6 +20,8 @@ int main() {
 	int randomSeed;
 	struct gameState state;
 	int choice1; 
+	int currentPlayer;
+	int handCount; 
 	
 	//seed time
 	srand(time(0));
@@ -36,7 +38,7 @@ int main() {
 	//randomize card deck 
 	for(int i = 0; i < 1000; i++) {
 		for(int j = 0; j < sizeof(struct gameState); j++) {
-			((char *)&state)[j] = rand % 256; 
+			((char *)&state)[j] = rand() % 256; 
 		}
 	}
 	
@@ -83,7 +85,7 @@ int baronTest(struct gameState *state, int choice1) {
 		prevState.supplyCount[estate]--;
 	}
 	
-	else if {
+	else {
 		prevState.coins = prevState.coins + 4;
 		prevState.discard[currentPlayer][prevState.discardCount[currentPlayer]] = prevState.hand[currentPlayer][p];
 		prevState.discardCount[currentPlayer]++;
