@@ -50,7 +50,7 @@ int main() {
 		initializeGame(numPlayers, kingdomCards, randomSeed, &state); 
 	
 		//generate random choice between 0 and 1; 
-		choice1 = Random() % 1;
+		choice1 = (int) Random() % 1;  
 		
 		if(choice1 == 0) {
 			baronRefactor(&state, choice1);	
