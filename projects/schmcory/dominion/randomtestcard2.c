@@ -1,5 +1,12 @@
 //randomtestcard1.c
 
+#include "dominion.h"
+#include "dominion_helpers.h"
+#include <string.h>
+#include <stdio.h>
+#include <assert.h>
+#include "rngs.h"
+
 //CASE MINION
 int minionRefactor(struct gameState *state, int handPos, int choice1, int choice2) {
       int currentPlayer = whoseTurn(state); //declate currentPlayer variable from cardEffect
