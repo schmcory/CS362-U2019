@@ -32,6 +32,9 @@ int main() {
 	//for loop for number of tests
 	for(int i = 0; i < 10; i++) { 
 
+		//randomize number of players, between 1 and 4
+		numPlayers = (rand() % (4 - 1 + 1)) + 1; 
+
 		//initialize game
 		initializeGame(numPlayers, kingdomCards, randomSeed, &state); 
 	
