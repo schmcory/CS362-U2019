@@ -68,7 +68,6 @@ int main() {
 }
 
 //CASE MINION
-//Player can either discard an estate card and win 4 coins OR gain a new estate card
 int minionTest(struct gameState *state, int handPos, int choice1, int choice2, int currentPlayer) {
 	//previous gameState
 	struct gameState prevState;
@@ -91,7 +90,6 @@ int minionTest(struct gameState *state, int handPos, int choice1, int choice2, i
 
 	}
 		
-	//else the currentPlayer is NOT holding an estate card, add an estate card
 	else if(choice2) {
 		while(prevState.handCount[currentPlayer] > 0) {
 	      		prevState.handCount[currentPlayer]--;
