@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int minionTest(struct gameState *state, int handPos, int choice1, int choice2, int currentPlayer); 
+int baronTest(struct gameState *state, int choice1, int currentPlayer); 
 
 //RANDOM TEST GENERATOR FROM CASE BARON
 int main() {
@@ -33,6 +33,7 @@ int main() {
 	//for loop for number of tests
 	for(int i = 0; i < 10; i++) { 
 		
+		//randomize number of players, between 1 and 4
 		numPlayers = (rand() % (4 - 1 + 1)) + 1; 
 
 		//initialize game
@@ -46,10 +47,7 @@ int main() {
 	
 		//generate a random currentPlayer from 0 to 3; 
 		currentPlayer = (rand() % (3 - 0 + 1)) + 0; 
-	
-		//estate card supply set between 0 and 12 cards
-		state.supplyCount[estate] = (rand() % (13 - 0 + 1)) + 0;
-	
+		
 		//randomize card value between 1 and 5
 		card = rand() % (5 - 0 + 1) + 0;
 	
