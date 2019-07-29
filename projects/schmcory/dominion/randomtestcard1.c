@@ -15,7 +15,7 @@ int baronTest(struct gameState *state, int choice1, int currentPlayer);
 //RANDOM TEST GENERATOR FROM CASE BARON
 int main() {
 	//declare variables from initalizeGame function
-	int numPlayers = 4;
+	int numPlayers;
 	int kingdomCards[10] = {minion, ambassador, tribute, gardens, mine, remodel, smithy, village, baron, great_hall};
 	struct gameState state; //
 	int randomSeed;
