@@ -27,7 +27,7 @@ void asserttrue(int actual, int expected) {
 */
 int main() {
    int choice1;
-   int choice2 = 0;
+   int choice2;
    int choice3 = 0;
    int handpos = 0;
    int bonus = 0;
