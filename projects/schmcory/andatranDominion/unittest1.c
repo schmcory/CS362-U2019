@@ -37,7 +37,7 @@ int main() {
    struct gameState prevState;
    struct gameState state;
    
-   int currentPlayer = whoseTurn(&state); 
+   int currentPlayer = 0;
    
    int k[10] = { baron, ambassador, village, minion, mine, cutpurse,
 			sea_hag, tribute, smithy, council_room };
