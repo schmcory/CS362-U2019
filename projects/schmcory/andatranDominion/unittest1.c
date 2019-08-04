@@ -18,7 +18,6 @@ void asserttrue(int actual, int expected) {
 	}
 }
 
-
 /* BARON CARD UNIT TEST:
 *Buys increased by 1
 *Player has two choices
@@ -33,26 +32,26 @@ int main() {
    int handpos = 0;
    int bonus = 0;
    
-	int randomSeed = 1000;
+   int randomSeed = 1000;
    
    struct gameState prevState;
    struct gameState state;
    
    int currentPlayer = whoseTurn(&state); 
    
-	int k[10] = { baron, ambassador, village, minion, mine, cutpurse,
+   int k[10] = { baron, ambassador, village, minion, mine, cutpurse,
 			sea_hag, tribute, smithy, council_room };
 
    //counters
-	int prevBuys;
+   int prevBuys;
    int prevEstateCards;	
-	int postEstateCards;	
-	int prevDiscardCount;
-	int postDiscardCount;
-	int prevCoins; 
+   int postEstateCards;	
+   int prevDiscardCount;
+   int postDiscardCount;
+   int prevCoins; 
 
-	// initialize a game state and player cards
-	initializeGame(2, k, randomSeed, &state);
+   // initialize a game state and player cards
+   initializeGame(2, k, randomSeed, &state);
    
    int i;  //incrementor
    
