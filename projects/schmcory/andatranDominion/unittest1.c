@@ -128,9 +128,9 @@ int main() {
 	}
 
 	//assert true statements to see if test passed
-	assertTrue(numberOfEstatesBefore, numberOfEstatesAfter - 1);
-	assertTrue(numberOfCoinsBefore, testG.coins);
-	assertTrue(numberOfEstatesBefore, numberOfEstatesAfter - 1);
+	assertTrue(prevEstateCards, postEstateCards + 1);
+	assertTrue(prevState.coins, prevCoins);
+	assertTrue(prevDiscardCount, postDiscardCount);
 /*-------------------------------------------- END UNIT TEST 2 --------------------------------------------*/
    
 /*---------------------- UNIT TEST 3: Estate card discarded and coins gained by 4 --------------------------------------*/
