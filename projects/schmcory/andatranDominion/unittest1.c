@@ -79,7 +79,7 @@ int main() {
 /*-------------------------------------------- END UNIT TEST 1 --------------------------------------------*/
    
 /*------------------------------------ UNIT TEST 2: Gains an estate --------------------------------------*/
-	printf("TEST 4: Player chooses to gain an estate \n");
+	printf("Test Case 2: Player chooses to gain an estate \n");
 
 	//copy the game state
 	memcpy(&prevState, &state, sizeof(struct gameState));
