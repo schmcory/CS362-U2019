@@ -42,6 +42,8 @@ int main() {
    int k[10] = { baron, ambassador, village, minion, mine, cutpurse,
 			sea_hag, tribute, smithy, council_room };
 
+   state.hand[currentPlayer][0] = baron;
+	
    //counters
    int prevBuys;
    int prevEstateCards;	
