@@ -122,8 +122,8 @@ int main() {
 
    //count the number of discarded estate cards from the players hand after the card is played
 	postDiscardCount = 0;
-	for (i = 0; i < prevState.discardCount[thisPlayer]; i++) {
-		if (prevState.deck[thisPlayer][i] == estate) {
+	for (i = 0; i < prevState.discardCount[currentPlayer]; i++) {
+		if (prevState.deck[currentPlayer][i] == estate) {
 			postDiscardCount += 1;
 		}
 	}
@@ -181,8 +181,8 @@ int main() {
 
    //count the number of discarded estate cards from the players hand after the card is played
 	postDiscardCount = 0;
-	for (i = 0; i < prevState.discardCount[thisPlayer]; i++) {
-		if (prevState.deck[thisPlayer][i] == estate) {
+	for (i = 0; i < prevState.discardCount[currentPlayer]; i++) {
+		if (prevState.deck[currentPlayer][i] == estate) {
 			postDiscardCount += 1;
 		}
 	}
