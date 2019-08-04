@@ -74,7 +74,7 @@ int main() {
 	    cardEffect(baron, choice1, choice2, choice3, &prevState, handpos, &bonus);
 
 	    //assert true statements to see if test passed
-       assertTrue(previousBuys, prevState.numBuys - 1);
+       asserttrue(previousBuys, prevState.numBuys - 1);
    }
 /*-------------------------------------------- END UNIT TEST 1 --------------------------------------------*/
    
@@ -128,9 +128,9 @@ int main() {
 	}
 
 	//assert true statements to see if test passed
-	assertTrue(prevEstateCards, postEstateCards + 1);
-	assertTrue(prevState.coins, prevCoins);
-	assertTrue(prevDiscardCount, postDiscardCount);
+	asserttrue(prevEstateCards, postEstateCards + 1);
+	asserttrue(prevState.coins, prevCoins);
+	asserttrue(prevDiscardCount, postDiscardCount);
 /*-------------------------------------------- END UNIT TEST 2 --------------------------------------------*/
    
 /*---------------------- UNIT TEST 3: Estate card discarded and coins gained by 4 --------------------------------------*/
@@ -187,9 +187,9 @@ int main() {
 	}
    
 	//assert true statements to see if test passed
-	assertTrue(prevEstateCards, postEstateCards + 1);
-	assertTrue(prevState.coins, prevCoins + 4);
-	assertTrue(prevDiscardCount, postDiscardCount - 1);
+	asserttrue(prevEstateCards, postEstateCards + 1);
+	asserttrue(prevState.coins, prevCoins + 4);
+	asserttrue(prevDiscardCount, postDiscardCount - 1);
 /*-------------------------------------------- END UNIT TEST 3 --------------------------------------------*/
 
 	return 0;
