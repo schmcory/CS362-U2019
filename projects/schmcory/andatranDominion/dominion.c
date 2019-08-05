@@ -199,7 +199,7 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
 }
 
 int shuffle(int player, struct gameState *state) {
- 
+
 
   int newDeck[MAX_DECK];
   int newDeckPos = 0;
@@ -208,7 +208,7 @@ int shuffle(int player, struct gameState *state) {
 
   if (state->deckCount[player] < 1)
     return -1;
-  qsort ((void*)(state->deck[player]), state->deckCount[player], sizeof(int), compare); 
+  qsort ((void*)(state->deck[player]), state->deckCount[player], sizeof(int), compare);
   /* SORT CARDS IN DECK TO ENSURE DETERMINISM! */
 
   while (state->deckCount[player] > 0) {
@@ -228,8 +228,8 @@ int shuffle(int player, struct gameState *state) {
   return 0;
 }
 
-int playCard(int handPos, int choice1, int choice2, int choice3, struct gameState *state) 
-{	
+int playCard(int handPos, int choice1, int choice2, int choice3, struct gameState *state)
+{
   int card;
   int coin_bonus = 0; 		//tracks coins gain from actions
 
@@ -238,34 +238,34 @@ int playCard(int handPos, int choice1, int choice2, int choice3, struct gameStat
     {
       return -1;
     }
-	
+
   //check if player has enough actions
   if ( state->numActions < 1 )
     {
       return -1;
     }
-	
+
   //get card played
   card = handCard(handPos, state);
-	
+
   //check if selected card is an action
   if ( card < adventurer || card > treasure_map )
     {
       return -1;
     }
-	
+
   //play card
   if ( cardEffect(card, choice1, choice2, choice3, state, handPos, &coin_bonus) < 0 )
     {
       return -1;
     }
-	
+
   //reduce number of actions
   state->numActions--;
 
   //update coins (Treasure cards may be added with card draws)
   updateCoins(state->whoseTurn, state, coin_bonus);
-	
+
   return 0;
 }
 
@@ -288,14 +288,14 @@ int buyCard(int supplyPos, struct gameState *state) {
       printf("There are not any of that type of card left\n");
     return -1;
   } else if (state->coins < getCost(supplyPos)){
-    if (DEBUG) 
+    if (DEBUG)
       printf("You do not have enough money to buy that. You have %d coins.\n", state->coins);
     return -1;
   } else {
     state->phase=1;
     //state->supplyCount[supplyPos]--;
     gainCard(supplyPos, state, 0, who); //card goes in discard, this might be wrong.. (2 means goes into hand, 0 goes into discard)
-  
+
     state->coins = (state->coins) - (getCost(supplyPos));
     state->numBuys--;
     if (DEBUG)
@@ -304,7 +304,7 @@ int buyCard(int supplyPos, struct gameState *state) {
 
   //state->discard[who][state->discardCount[who]] = supplyPos;
   //state->discardCount[who]++;
-    
+
   return 0;
 }
 
