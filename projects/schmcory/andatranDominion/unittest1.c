@@ -66,8 +66,6 @@ int main() {
    //for loop allows the test case to initiate for both choices 0 and 1
    for(i = 0; i < 2; i++) {
 	   choice1 = i;
-
-      printf("If the player chooses to gain a new estate...")
 	
        //sets prevBuys variable equal to the number of buys before the card is played
        prevBuys = prevState.numBuys;
@@ -76,7 +74,7 @@ int main() {
 	    cardEffect(baron, choice1, choice2, choice3, &prevState, handpos, &bonus);
 
 	    //assert true statements to see if test passed
-       asserttrue(previousBuys, prevState.numBuys - 1);
+       asserttrue(prevBuys, prevState.numBuys - 1);
    }
 /*-------------------------------------------- END UNIT TEST 1 --------------------------------------------*/
    
@@ -92,7 +90,7 @@ int main() {
    prevEstateCards = 0;
    
 	//count the number of estates in the players hand before the card is played
-	for (i = 1; i < prevEstateCards.handCount[currentPlayer]; i++) {
+	for (i = 1; i < prevState.handCount[currentPlayer]; i++) {
       //if the player is holding an estate card
 		//set the prevEstateCards variable equal to the estate cards the player is holding
 		if (prevState.hand[currentPlayer][i - 1] == estate) {
@@ -136,7 +134,7 @@ int main() {
 /*-------------------------------------------- END UNIT TEST 2 --------------------------------------------*/
    
 /*---------------------- UNIT TEST 3: Estate card discarded and coins gained by 4 --------------------------------------*/
-   printf("Test Case 3: Testing whether an estate card was discarded and four coins were gained\n")
+   printf("Test Case 3: Testing whether an estate card was discarded and four coins were gained\n");
 
 	//copy the game state
 	memcpy(&prevState, &state, sizeof(struct gameState));
@@ -148,7 +146,7 @@ int main() {
    prevEstateCards = 0;
    
 	//count the number of estates in the players hand before the card is played
-	for (i = 1; i < prevEstateCards.handCount[currentPlayer]; i++) {
+	for (i = 1; i < prevState.handCount[currentPlayer]; i++) {
       //if the player is holding an estate card
 		//set the prevEstateCards variable equal to the estate cards the player is holding
 		if (prevState.hand[currentPlayer][i - 1] == estate) {
