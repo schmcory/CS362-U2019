@@ -767,7 +767,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return -1;
 			
     case mine:
-		myMineCard(choice1, choice2, state, handPosm currentPlayer);
+		myMineCard(choice1, choice2, state, handPos, currentPlayer);
 			
     case remodel:
       j = state->hand[currentPlayer][choice1];  //store card we will trash
@@ -818,7 +818,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case baron:
-		myBaronCard(choice1, choice2, state, handpos, currentPlayer)
+		myBaronCard(choice1, choice2, state, handPos, currentPlayer);
 		
     case great_hall:
       //+1 Card
@@ -1089,7 +1089,7 @@ int updateCoins(int player, struct gameState *state, int bonus)
 }
 
 int myAmbassadorCard(int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer){
-    //check if the number of cards chosen to be discarded is either 0, 1, or 2
+		//check if the number of cards chosen to be discarded is either 0, 1, or 2
     if (choice2 > 2 || choice2 <= 0){
         return -1;
     }
