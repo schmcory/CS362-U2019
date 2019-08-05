@@ -1128,7 +1128,7 @@ int myAmbassadorCard(int choice1, int choice2, struct gameState *state, int hand
 
     //discard cards returned to supply
     for (int j = 0; j < choice2; j++){
-        for (int i = 0; i < state-handCount[currentPlayer]; i++){
+        for (int i = 0; i < state->handCount[currentPlayer]; i++){
             if (state->hand[currentPlayer][i] == state->hand[currentPlayer][choice1]){
                 discardCard(i, currentPlayer, state, 1);
                 break;
@@ -1244,7 +1244,7 @@ int myTributeCard(int choice1, int choice2, struct gameState *state, int handPos
     else{
         //if the deck has no cards, switch ot the discard and then reveal
         if (state->deckCount[nextPlayer] == 0){
-            for (int i = 0; i < state-discardCount[nextPlayer]; i++){
+            for (int i = 0; i < state->discardCount[nextPlayer]; i++){
                 state->deck[nextPlayer][i] = state->discard[nextPlayer][i];
                 state->deckCount[nextPlayer]++;
                 state->discard[nextPlayer][i] = -1;
@@ -1295,7 +1295,7 @@ int myTributeCard(int choice1, int choice2, struct gameState *state, int handPos
 
 int myBaronCard(int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer){
     //immediately increase number of buy actions by 1
-    state->numBuys+++;
+    state->numBuys++;
 
     //choice is made to discard an estate
     if (choice1 > 0){
