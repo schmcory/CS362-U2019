@@ -75,8 +75,15 @@ int minionTest(struct gameState *state, int handPos, int choice1, int choice2, i
 	//create memory from previous gameState
 	memcpy(&prevState, state, sizeof(struct gameState));
 
+	//declare unused variables from cardEffect
+	int choice2 = 0;
+	int choice3 = 0;
+	int handPos = 0;
+	int bonus = 0;
+
 	//function call to baronRefactor
-	minionRefactor(state, handPos, choice1, choice2, currentPlayer);
+	//baronRefactor(state, choice1, currentPlayer);
+	cardEffect(minion, choice1, choice2, choice3, &prevState, handPos, &bonus);
 
 	int i;
 	int j;
