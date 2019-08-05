@@ -70,9 +70,13 @@ int tributeTest(struct gameState *state, int currentPlayer, int nextPlayer, int 
 	memcpy(&prevState, state, sizeof(struct gameState));
 
 	int i;
+	int choice1 = 0;
+	int choice2 = 0;
+	int choice3 = 0;
+	int handPos = 0;
+	int bonus = 0;
 
-	//function call to baronRefactor
-	tributeRefactor(state, currentPlayer, nextPlayer, tributeRevealedCards);
+	cardEffect(tribute, choice1, choice2, choice3, &prevState, handPos, &bonus);
 
 	if((prevState.discardCount[nextPlayer] + prevState.deckCount[nextPlayer]) <= 1) {
 		if(prevState.deckCount[nextPlayer] > 0) {
