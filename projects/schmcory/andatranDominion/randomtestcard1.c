@@ -60,7 +60,7 @@ int main() {
 		state.handCount[currentPlayer] = 5; 
 		
 		//function call to baronTest 
-		baronTest(choice1, choice2, &state, handPos, currentPlayer);
+		baronTest(&state, choice1, currentPlayer);
 	
 	}
 	
@@ -69,16 +69,22 @@ int main() {
 
 //CASE BARON
 //Player can either discard an estate card and win 4 coins OR gain a new estate card
-int baronTest(int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer) {
+int baronTest(struct gameState *state, int choice1, int currentPlayer) {
 	//previous gameState
 	struct gameState prevState;
 
 	//create memory from previous gameState
 	memcpy(&prevState, state, sizeof(struct gameState));
+	
+	//declare unused variables from cardEffect
+	int choice2 = 0;
+	int choice3 = 0;
+	int handPos = 0;
+	int bonus = 0;
 
 	//function call to baronRefactor
 	//baronRefactor(state, choice1, currentPlayer);
-	myBaronCard(choice1, choice2, state, handPos, currentPlayer);
+	cardEffect(baron, choice1, choice2, choice3, &prevState, handPos, &bonus);
 	
 	prevState.numBuys++;//Increase buys by 1!
 	
