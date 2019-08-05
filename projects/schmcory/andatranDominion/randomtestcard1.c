@@ -20,6 +20,7 @@ int main() {
 	struct gameState state; //
 	int randomSeed;
 	int choice1; //
+	int choice2;
 	int currentPlayer; //
 	int handPos; 
 	int card; //
@@ -59,7 +60,7 @@ int main() {
 		state.handCount[currentPlayer] = 5; 
 		
 		//function call to baronTest 
-		baronTest(&state, choice1, currentPlayer);
+		baronTest(choice1, choice2, &state, handPos, currentPlayer);
 	
 	}
 	
@@ -68,7 +69,7 @@ int main() {
 
 //CASE BARON
 //Player can either discard an estate card and win 4 coins OR gain a new estate card
-int baronTest(struct gameState *state, int choice1, int currentPlayer) {
+int baronTest(int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer) {
 	//previous gameState
 	struct gameState prevState;
 
@@ -76,7 +77,8 @@ int baronTest(struct gameState *state, int choice1, int currentPlayer) {
 	memcpy(&prevState, state, sizeof(struct gameState));
 
 	//function call to baronRefactor
-	baronRefactor(state, choice1, currentPlayer);
+	//baronRefactor(state, choice1, currentPlayer);
+	myBaronCard(choice1, choice2, state, handPos, currentPlayer);
 	
 	prevState.numBuys++;//Increase buys by 1!
 	
