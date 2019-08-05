@@ -78,7 +78,6 @@ int minionTest(struct gameState *state, int handPos, int choice1, int choice2, i
 	//declare unused variables from cardEffect
 	int choice2 = 0;
 	int choice3 = 0;
-	int handPos = 0;
 	int bonus = 0;
 
 	//function call to baronRefactor
