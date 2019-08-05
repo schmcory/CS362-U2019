@@ -7,7 +7,7 @@
 //assert true function
 void asserttrue(int actual, int expected) {
 
-	if (actual, expected) {
+	if (actual == expected) {
 
 		printf("Test Passed!\n");
 	}
