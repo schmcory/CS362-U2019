@@ -351,7 +351,8 @@ public class UrlValidator implements Serializable {
      */
     protected boolean isValidScheme(String scheme) {
         if (scheme == null) {
-            return false;
+          /*BUG - should be return FALSE - will return NULL scheme values as true */
+            return true;
         }
 
         // TODO could be removed if external schemes were checked in the ctor before being stored
@@ -408,7 +409,8 @@ public class UrlValidator implements Serializable {
             if (!domainValidator.isValid(hostLocation)) {
                 // try an IPv4 address
                 InetAddressValidator inetAddressValidator = InetAddressValidator.getInstance();
-                if (!inetAddressValidator.isValidInet4Address(hostLocation)) {
+               /*BUG - SHOULD BE !inetAddressValidator.isValidInet4Address(hostLocation) - will return as IPv4 */
+                if (inetAddressValidator.isValidInet4Address(hostLocation)) {
                     // isn't IPv4, so the URL is invalid
                     return false;
                 }
